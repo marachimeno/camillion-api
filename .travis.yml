@@ -11,11 +11,9 @@ before_install:
 addons:
   postgresql: '9.6'
 before_script:
-  - psql -c 'create database product_hunt_clone_test;' -U postgres
+  - psql -c 'create database camillion_api_test;' -U postgres
 script:
   - bundle install
   - bundle exec rake db:schema:load
   - bundle exec rake db:test:prepare
-  - SECRET_KEY_BASE=a RAILS_ENV=production bundle exec rake
-  - bundle exec rake test
-  - bundle exec rake test:system
+  - bundle exec rake
