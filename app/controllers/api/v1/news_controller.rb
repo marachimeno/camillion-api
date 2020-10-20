@@ -12,6 +12,7 @@ class Api::V1::NewsController < Api::V1::BaseController
   def create
     @new = New.new(new_params)
     @new.user = User.first
+
     authorize @new
     if @new.save
       render :show, status: :created
